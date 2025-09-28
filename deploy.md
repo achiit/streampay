@@ -14,6 +14,7 @@
    - Click "New Project"
    - Import your GitHub repository
    - Vercel will auto-detect it as a Vite project
+   - Set Node.js version to 18 (this fixes the Rollup native module issue)
    - Add your environment variables:
      - `VITE_PRIVY_APP_ID`
      - `VITE_FIREBASE_API_KEY`
@@ -28,6 +29,14 @@
    - Click "Deploy"
 
 3. **That's it!** Your app will be live at `https://your-project-name.vercel.app`
+
+## Troubleshooting Vercel Deployment
+
+If you encounter the Rollup native module error, the project is now configured with:
+- ✅ Node.js 18 specified in `.nvmrc`
+- ✅ Manual chunk splitting for better optimization
+- ✅ Proper Vercel configuration in `vercel.json`
+- ✅ Build optimizations in `vite.config.ts`
 
 ## Local Development
 
