@@ -94,7 +94,7 @@ export default function Login() {
 				{/* Left Panel */}
 				<div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 sm:p-12 lg:p-16 xl:p-24 relative">
 					<div className="relative z-10 w-full max-w-sm">
-						<img src="/logo.svg" alt="Habu Logo" className="w-40 h-auto mb-8" />
+						<img src="/logo.png" alt="Habu Logo" className="w-40 h-auto mb-8" />
 						<p className="text-gray-300 mb-8 text-lg">Welcome Back!</p>
 
 						{/* Feature Highlights Instead of Form Fields */}

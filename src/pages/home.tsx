@@ -66,7 +66,7 @@ export default function Home() {
 					<div className="w-16 h-16 relative">
 						<div className="absolute top-0 left-0 w-full h-full border-4 border-t-[#FF9F5A] border-r-[#FFCC66] border-b-[#FF9F5A] border-l-[#FFCC66] rounded-full animate-spin" />
 					</div>
-					<p className="mt-4 text-white text-lg">Loading GigGuard...</p>
+					<p className="mt-4 text-white text-lg">Loading StreamPay...</p>
 				</div>
 			</div>
 		);
@@ -85,8 +85,8 @@ export default function Home() {
 				<div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
 					<div className="h-auto w-24">
 						<img
-							src="/logo.svg"
-							alt="GigGuard Logo"
+							src="/logo.png"
+							alt="StreamPay Logo"
 							className="w-full h-full"
 						/>
 					</div>
@@ -518,7 +518,7 @@ export default function Home() {
 
 							<p className="mt-4 text-xl text-gray-300">
 								Join thousands of freelancers who've transformed their business
-								with GigGuard
+								with StreamPay
 							</p>
 						</div>
 
@@ -526,7 +526,7 @@ export default function Home() {
 							<CarouselContent>
 								<CarouselItem className="md:basis-1/2 lg:basis-1/3">
 									<TestimonialCard
-										quote="GigGuard has been a game-changer for my design business. I've cut admin time by 70% and clients are impressed with how professional everything looks."
+										quote="StreamPay has been a game-changer for my design business. I've cut admin time by 70% and clients are impressed with how professional everything looks."
 										author="Sarah Johnson"
 										jobTitle="UI/UX Designer"
 										avatarSrc="/testimonial-1.jpg"
@@ -556,7 +556,7 @@ export default function Home() {
 
 								<CarouselItem className="md:basis-1/2 lg:basis-1/3">
 									<TestimonialCard
-										quote="After struggling with late payments for years, GigGuard's automated invoicing and reminders have completely solved that problem. Highly recommended!"
+										quote="After struggling with late payments for years, StreamPay's automated invoicing and reminders have completely solved that problem. Highly recommended!"
 										author="James Wilson"
 										jobTitle="Marketing Consultant"
 										avatarSrc="/testimonial-4.jpg"
@@ -707,10 +707,10 @@ export default function Home() {
 								<TabsContent value="general" className="mt-0 space-y-4">
 									<div className="rounded-xl bg-gray-800/80 p-6 border border-gray-700/50">
 										<h3 className="text-lg font-medium text-white mb-2">
-											What is GigGuard?
+											What is StreamPay?
 										</h3>
 										<p className="text-gray-300">
-											GigGuard is an all-in-one platform designed specifically
+											StreamPay is an all-in-one platform designed specifically
 											for freelancers to manage contracts, e-signatures,
 											invoices, client relationships, and business analytics in
 											one centralized dashboard.
@@ -730,12 +730,12 @@ export default function Home() {
 
 									<div className="rounded-xl bg-gray-800/80 p-6 border border-gray-700/50">
 										<h3 className="text-lg font-medium text-white mb-2">
-											Do I need technical skills to use GigGuard?
+											Do I need technical skills to use StreamPay?
 										</h3>
 										<p className="text-gray-300">
-											Not at all! GigGuard is designed to be user-friendly with
+											Not at all! StreamPay is designed to be user-friendly with
 											an intuitive interface. If you can use email, you can use
-											GigGuard.
+											StreamPay.
 										</p>
 									</div>
 								</TabsContent>
@@ -799,10 +799,10 @@ export default function Home() {
 
 									<div className="rounded-xl bg-gray-800/80 p-6 border border-gray-700/50">
 										<h3 className="text-lg font-medium text-white mb-2">
-											Can clients pay invoices directly through GigGuard?
+											Can clients pay invoices directly through StreamPay?
 										</h3>
 										<p className="text-gray-300">
-											Yes, clients can pay invoices directly through GigGuard
+											Yes, clients can pay invoices directly through StreamPay
 											via credit card, PayPal, or bank transfer, depending on
 											your preferences.
 										</p>
@@ -855,7 +855,7 @@ export default function Home() {
 								size="lg"
 								variant="outline"
 								onClick={() =>
-									window.open("https://calendly.com/gigguard/demo", "_blank")
+									window.open("https://calendly.com/streampay/demo", "_blank")
 								}
 								className="px-10 py-4 text-lg rounded-xl bg-[#ff4800] border-0 text-white hover:text-white hover:bg-[#ff6000] transition-all mr-2"
 							>
@@ -889,11 +889,11 @@ export default function Home() {
 
 					<div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
 						<p className="text-gray-500">
-							© 2024 GigGuard. All rights reserved.
+							© 2024 StreamPay. All rights reserved.
 						</p>
 						<div className="flex space-x-4">
 							<a
-								href="https://x.com/gigguard"
+								href="https://x.com/streampay"
 								className="text-gray-400 hover:text-[#ff4800]"
 							>
 								<span className="sr-only">Twitter</span>
@@ -907,7 +907,7 @@ export default function Home() {
 								</svg>
 							</a>
 							<a
-								href="https://www.linkedin.com/company/gigguard"
+								href="https://www.linkedin.com/company/streampay"
 								className="text-gray-400 hover:text-[#ff6000]"
 							>
 								<span className="sr-only">LinkedIn</span>
@@ -925,7 +925,7 @@ export default function Home() {
 								</svg>
 							</a>
 							<a
-								href="https://www.instagram.com/gigguard"
+								href="https://www.instagram.com/streampay"
 								className="text-gray-400 hover:text-[#ff6000]"
 							>
 								<span className="sr-only">Instagram</span>

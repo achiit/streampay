@@ -141,8 +141,8 @@ export default function Invoices() {
 
   if (loading) {
     return (
-      <DashboardLayout 
-        title="Invoices" 
+      <DashboardLayout
+        title="Invoices"
         description="Manage your payment invoices and track their status"
       >
         <div className="space-y-6">
@@ -171,8 +171,8 @@ export default function Invoices() {
   }
 
   return (
-    <DashboardLayout 
-      title="Invoices" 
+    <DashboardLayout
+      title="Invoices"
       description="Manage your payment invoices and track their status"
     >
       <div className="space-y-6">
@@ -187,157 +187,157 @@ export default function Invoices() {
           </Button>
         </div>
 
-      {error ? (
-        <Card>
-          <CardContent className="pt-6">
-            <div className="text-center py-8">
-              <h3 className="text-lg font-medium mb-2 text-destructive">Error Loading Invoices</h3>
-              <p className="text-muted-foreground mb-4">{error}</p>
-              <Button onClick={loadInvoices} variant="outline">
-                Try Again
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      ) : invoices.length === 0 ? (
-        <div className="space-y-6">
+        {error ? (
           <Card>
             <CardContent className="pt-6">
               <div className="text-center py-8">
-                <h3 className="text-lg font-medium mb-2">No Invoices Yet</h3>
-                <p className="text-muted-foreground mb-4">
-                  Invoices will appear here when you send contracts to clients.
-                </p>
+                <h3 className="text-lg font-medium mb-2 text-destructive">Error Loading Invoices</h3>
+                <p className="text-muted-foreground mb-4">{error}</p>
+                <Button onClick={loadInvoices} variant="outline">
+                  Try Again
+                </Button>
               </div>
             </CardContent>
           </Card>
-          
-          {/* Debug tools - only show in development */}
-          {import.meta.env.DEV && (
+        ) : invoices.length === 0 ? (
+          <div className="space-y-6">
             <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Development Tools</CardTitle>
-                <p className="text-sm text-muted-foreground">
-                  These tools are only visible in development mode
-                </p>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <FaucetDebug />
-                    <FirebaseDebug />
-                    <InvoiceDebug onInvoiceCreated={loadInvoices} />
+              <CardContent className="pt-6">
+                <div className="text-center py-8">
+                  <h3 className="text-lg font-medium mb-2">No Invoices Yet</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Invoices will appear here when you send contracts to clients.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Debug tools - only show in development */}
+            {import.meta.env.DEV && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Development Tools</CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    These tools are only visible in development mode
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <FaucetDebug />
+                      <FirebaseDebug />
+                      <InvoiceDebug onInvoiceCreated={loadInvoices} />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <InvoiceStateDebug />
+                      <FundingDebug />
+                      <ReleaseDebug />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <TransactionDebug />
+                      <InvoiceCreationDebug />
+                    </div>
                   </div>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        ) : (
+          <div className="grid gap-6">
+            {invoices.map((invoice) => (
+              <Card key={invoice.invoiceId} className="hover:shadow-md transition-shadow">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <CardTitle className="text-xl">
+                        Invoice #{invoice.invoiceId.slice(-8)}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Created {formatDate(invoice.createdAt)}
+                      </p>
+                    </div>
+                    {getStatusBadge(invoice.status)}
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <InvoiceStateDebug />
-                    <FundingDebug />
-                    <ReleaseDebug />
+                    <div className="text-center md:text-left">
+                      <label className="text-sm font-medium text-muted-foreground">Amount</label>
+                      <p className="text-2xl font-bold text-primary">${invoice.amount.toLocaleString()}</p>
+                      <p className="text-sm text-muted-foreground">{invoice.currency}</p>
+                    </div>
+                    <div className="text-center md:text-left">
+                      <label className="text-sm font-medium text-muted-foreground">Blockchain</label>
+                      <p className="text-sm font-medium">Citrea Testnet</p>
+                      <p className="text-xs text-muted-foreground">wPYUSD Token</p>
+                    </div>
+                    <div className="text-center md:text-left">
+                      <label className="text-sm font-medium text-muted-foreground">Contract</label>
+                      <p className="text-sm font-mono">{invoice.contractId.slice(-8)}</p>
+                      <p className="text-xs text-muted-foreground">Contract ID</p>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <TransactionDebug />
-                    <InvoiceCreationDebug />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </div>
-      ) : (
-        <div className="grid gap-6">
-          {invoices.map((invoice) => (
-            <Card key={invoice.invoiceId} className="hover:shadow-md transition-shadow">
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CardTitle className="text-xl">
-                      Invoice #{invoice.invoiceId.slice(-8)}
-                    </CardTitle>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Created {formatDate(invoice.createdAt)}
-                    </p>
-                  </div>
-                  {getStatusBadge(invoice.status)}
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center md:text-left">
-                    <label className="text-sm font-medium text-muted-foreground">Amount</label>
-                    <p className="text-2xl font-bold text-primary">${invoice.amount.toLocaleString()}</p>
-                    <p className="text-sm text-muted-foreground">{invoice.currency}</p>
-                  </div>
-                  <div className="text-center md:text-left">
-                    <label className="text-sm font-medium text-muted-foreground">Blockchain</label>
-                    <p className="text-sm font-medium">Citrea Testnet</p>
-                    <p className="text-xs text-muted-foreground">wPYUSD Token</p>
-                  </div>
-                  <div className="text-center md:text-left">
-                    <label className="text-sm font-medium text-muted-foreground">Contract</label>
-                    <p className="text-sm font-mono">{invoice.contractId.slice(-8)}</p>
-                    <p className="text-xs text-muted-foreground">Contract ID</p>
-                  </div>
-                </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <Button
-                    variant="default"
-                    size="sm"
-                    onClick={() => copyPaymentLink(invoice.payLinkToken)}
-                    className="flex-1 sm:flex-none"
-                  >
-                    <Copy className="w-4 h-4 mr-2" />
-                    Copy Payment Link
-                  </Button>
-
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => syncWithBlockchain(invoice)}
-                    disabled={syncing === invoice.invoiceId}
-                  >
-                    <RefreshCw className={`w-4 h-4 mr-2 ${syncing === invoice.invoiceId ? 'animate-spin' : ''}`} />
-                    Sync Status
-                  </Button>
-
-                  {invoice.onchain.fundTx && (
-                    <Button variant="ghost" size="sm" asChild>
-                      <a
-                        href={`https://explorer.citrea.xyz/tx/${invoice.onchain.fundTx}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Fund Tx
-                      </a>
+                  <div className="flex flex-wrap gap-3">
+                    <Button
+                      variant="default"
+                      size="sm"
+                      onClick={() => copyPaymentLink(invoice.payLinkToken)}
+                      className="flex-1 sm:flex-none"
+                    >
+                      <Copy className="w-4 h-4 mr-2" />
+                      Copy Payment Link
                     </Button>
-                  )}
 
-                  {invoice.onchain.releaseTx && (
-                    <Button variant="ghost" size="sm" asChild>
-                      <a
-                        href={`https://explorer.citrea.xyz/tx/${invoice.onchain.releaseTx}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Release Tx
-                      </a>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => syncWithBlockchain(invoice)}
+                      disabled={syncing === invoice.invoiceId}
+                    >
+                      <RefreshCw className={`w-4 h-4 mr-2 ${syncing === invoice.invoiceId ? 'animate-spin' : ''}`} />
+                      Sync Status
                     </Button>
-                  )}
-                </div>
 
-                {invoice.onchain.payer && (
-                  <div className="text-sm text-muted-foreground">
-                    <span className="font-medium">Payer:</span> {invoice.onchain.payer}
+                    {invoice.onchain.fundTx && (
+                      <Button variant="ghost" size="sm" asChild>
+                        <a
+                          href={`https://explorer.citrea.xyz/tx/${invoice.onchain.fundTx}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Fund Tx
+                        </a>
+                      </Button>
+                    )}
+
+                    {invoice.onchain.releaseTx && (
+                      <Button variant="ghost" size="sm" asChild>
+                        <a
+                          href={`https://explorer.citrea.xyz/tx/${invoice.onchain.releaseTx}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Release Tx
+                        </a>
+                      </Button>
+                    )}
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      )}
+
+                  {invoice.onchain.payer && (
+                    <div className="text-sm text-muted-foreground">
+                      <span className="font-medium">Payer:</span> {invoice.onchain.payer}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </DashboardLayout>
   )

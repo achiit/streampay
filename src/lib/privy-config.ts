@@ -8,7 +8,7 @@ export const privyConfig: PrivyClientConfig = {
   appearance: {
     theme: 'light',
     accentColor: '#6366f1',
-    logo: '/logo.svg',
+    logo: '/logo.png',
     showWalletLoginFirst: false,
     walletChainType: 'ethereum-only',
   },
