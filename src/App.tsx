@@ -20,7 +20,7 @@ import Home from "@/pages/home";
 import Web3Login from "@/pages/web3-login";
 import Profile from "@/pages/profile";
 import PrivyTest from "@/pages/privy-test";
-import Invoices from "@/pages/invoices";
+import Invoices from "@/pages/Invoices";
 import PaymentView from "@/pages/payment-view";
 import Faucet from "@/pages/faucet";
 import { AuthProvider } from "@/contexts/auth-context";
