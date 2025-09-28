@@ -68,7 +68,7 @@ export default function Header({ sidebarOpen, setSidebarOpen, user }: HeaderProp
             <Menu className="h-6 w-6" />
           </button>
           <div className="flex items-center">
-            <img src="/logoblack.svg" alt="ContractPro" className="h-auto w-24" />
+            <img src="/logo.png" alt="ContractPro" className="h-auto w-24" />
           </div>
         </div>
 

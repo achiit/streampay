@@ -214,10 +214,7 @@ export default function Register() {
         <div className="w-full md:w-1/2 lg:w-3/5 flex flex-col justify-center items-center p-8 sm:p-12 lg:p-16 relative overflow-auto">
           <div className="w-full max-w-md">
             <div className="flex items-center mb-10">
-              <div className="h-12 w-12 bg-gradient-to-br from-[#FF9F5A] to-[#FFCC66] rounded-md flex items-center justify-center mr-3">
-                <FileCheck className="h-6 w-6 text-white" />
-              </div>
-              <h1 className="text-2xl font-bold text-white">GitGuard</h1>
+              <img className="w-full h-full" src="/logo.png" alt="streampay" width={100} height={100}/>
             </div>
 
             <h2 className="text-3xl font-bold mb-3 text-white">Complete Your Profile</h2>
